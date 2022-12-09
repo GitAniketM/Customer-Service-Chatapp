@@ -35,9 +35,11 @@
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
         let user_username = JSON.parse(document.getElementById('username').textContent);
         var is_agent = JSON.parse(document.getElementById('is_agent').textContent);
-
+        let wss = "wss://"
+        if(window.location.protocol === "http:"){
+            wss = "ws://";}
         const chatSocket = new WebSocket(
-            'ws://'
+            wss
             + window.location.host
             + '/ws/chat/'
             + roomName
