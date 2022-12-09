@@ -1,8 +1,7 @@
-Django==4.0
+Django==3.2.16
 channels==3.0.4
-asgiref==3.5.2
 dj-database-url==1.0.0
 psycopg2-binary==2.9.5
-pytx==2022.5
+pytz==2022.5
 sqlparse==0.4.3
 python-decouple==3.6
