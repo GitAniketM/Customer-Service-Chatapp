@@ -4,6 +4,6 @@ from config import settings
 
 # Create your models here.
 class Agents(models.Model):
-    customer = models.ForeignKey(Customer, related_name="agent_customer", on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, related_name="agent_customer", on_delete=models.CASCADE, null=True, blank=True)
     agent = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="agent", on_delete=models.CASCADE)
     

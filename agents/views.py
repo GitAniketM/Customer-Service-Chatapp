@@ -33,13 +33,14 @@ def updateOccupancy(request):
             c.is_occupied = is_occupant
             
             u = User.objects.get(username=request.user.username, is_agent=True)
+            print("User object: ", u)
             a = Agents.objects.get(agent=u)
             a.customer = c
             a.save()
             
             c.save()
-            
-            return json.dumps({'status':'success', 'message':'Occupancy updated successfully'})
+            print("Agent mapped successfully")
+            return JsonResponse({'status':'success', 'message':'Occupancy updated successfully'}, status=200)
     except Exception as e:
         print("Error occured: ",e)
         
@@ -57,7 +58,7 @@ def agent_login(request):
         if user is not None:
             print("logged in successfully")
             login(request, user)
-            return json.dumps({'status':'success', 'message':'Log in successful', 'error':False})
+            return JsonResponse({'status':'success', 'message':'Log in successful', 'error':False}, status=200)
         
         return redirect("agent_login")
      

@@ -387,7 +387,7 @@ border-radius:6px;
         <div id="friends">
             {% for message in message_list %}
             <div class="friend" {% if message.customer__is_occupied and customer_id == message.customer__user_id %}
-            onclick="openChat(`{{ message.username }}`)" style="border: 2px solid blue; !important"{% elif message.customer__is_occupied %}style="pointer-events: none !important;"{% else %}onclick="openChat(`{{ message.username }}`)"{% endif %}>
+            onclick="openChat(`{{ message.username }}`)" style="border: 1px solid red; !important"{% elif message.customer__is_occupied %}style="pointer-events: none !important;"{% else %}onclick="openChat(`{{ message.username }}`)"{% endif %}>
                 <p>
                   <strong id="username">{{ message.username }}</strong>
                   <span>{{ message.value }}</span>
