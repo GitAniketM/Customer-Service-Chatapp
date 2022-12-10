@@ -33,7 +33,7 @@ def login(request):
             return redirect('auth')
     except Exception as e:
         print(e)
-        return JsonResponse({'status':'failed', 'message':'Something weird happened. We are looking into it.', 'error':True}, status = 500)    
+        return json.dumps({'status':'failed', 'message':'Something weird happened. We are looking into it.', 'error':True})    
     
 @csrf_exempt
 def signup(request):
@@ -51,7 +51,7 @@ def signup(request):
             user.save()
             django_login(request, user)
             c, _ = Customer.objects.get_or_create(user=user)
-            return JsonResponse({'status':'success','message':'Signed up successfully','error':False}, status=200)
+            return json.dumps({'status':'success','message':'Signed up successfully','error':False})
     
     except Exception as e:
         print(e)

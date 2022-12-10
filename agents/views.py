@@ -39,7 +39,7 @@ def updateOccupancy(request):
             
             c.save()
             
-            return JsonResponse({'status':'success', 'message':'Occupancy updated successfully'}, status=200)
+            return json.dumps({'status':'success', 'message':'Occupancy updated successfully'})
     except Exception as e:
         print("Error occured: ",e)
         
@@ -57,7 +57,7 @@ def agent_login(request):
         if user is not None:
             print("logged in successfully")
             login(request, user)
-            return JsonResponse({'status':'success', 'message':'Log in successful', 'error':False}, status=200)
+            return json.dumps({'status':'success', 'message':'Log in successful', 'error':False})
         
         return redirect("agent_login")
      
