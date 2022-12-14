@@ -28,3 +28,16 @@ python manage.py migrate
 python manage.py runserver 
 ```
 This will run a local server at ```localhost:8000``` and through that you can access the project.
+
+- If you are unable to connect to websocket that means you dont have redis installed. To run locally, go to ```config/settings.py``` and change the following-
+> Change CHANNEL_LAYERS to
+```
+CHANNEL_LAYERS = {
+  "default":{
+    "BACKEND": "channels.layers.InMemoryChannelLayer"
+  }
+}
+```
+This is already mentioned there and commented out, you can simply uncomment it.
+
+Thank you
